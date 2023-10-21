@@ -12,5 +12,5 @@ curseur = conn_bd.cursor()
 req1 = "select* from custormers"
 curseur.execute(req1)
 resultat = curseur.fetchall()
-for row in resultat[:20]:
+for row in resultat[:21]:
     print (row)
