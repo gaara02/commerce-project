@@ -5,7 +5,7 @@ cnx = mysql.connector.connect(host='localhost',user='root', password='', databas
 
 curA = cnx.cursor()
 
-req= ("select * from  villes LIMIT 21")
+req= ("select * from  villes LIMIT 20")
 curA.execute(req)
 # Récupérez les résultats et les noms de colonnes
 results = curA.fetchall()
