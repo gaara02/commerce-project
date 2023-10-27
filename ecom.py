@@ -18,16 +18,17 @@ cnx.close()
 column_widths = [len(name) for name in column_names]
 for row in results:
     for i, value in enumerate(row):
-        column_widths[i] = max(column_widths[i], len(str(value)))
-
+        column_widths[i] = max(column_widths[i],len(str(value)))
+                               
 # Affichez les résultats sous forme de tableau bien formaté
 # En-têtes
-header = " | ".join(name.ljust(width) for name, width in zip(column_names, column_widths))
-print(header)
-print("-" * len(header))  # Ligne de séparation pour les en-têtes
+for i in range(len(column_names)):
+    print(column_names[i].ljust(column_widths[i]), end=" | ")
+print()
+print("-" * sum(column_widths + [3 * len(column_names) - 1]))
 
 # Données
 for row in results:
-    row_str = " | ".join(str(value).ljust(width) for value, width in zip(row, column_widths))
-    print(row_str)
-    print("-" * len(header))
+    for i in range(len(row)):
+        print(str(row[i]).ljust(column_widths[i]), end=" | ")
+    print()
