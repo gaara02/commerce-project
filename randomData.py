@@ -15,10 +15,24 @@ curseur.execute(req1)
 resultat = curseur.fetchall()
 
 valeurs_aleatoires = [random.choice(resultat) for _ in range(5)]
-
+column_names = [desc[0] for desc in curseur.description]
 curseur.close()
 conn_bd.close()
 
+column_widths = [len(name) for name in column_names]
+for valeur in valeurs_aleatoires:
+    for i, value in enumerate(valeur):
+        column_widths[i] = max(column_widths[i],len(str(value)))
+                               
+
+for i in range(len(column_names)):
+    print(column_names[i].ljust(column_widths[i]), end=" | ")
+print()
+print("-" * sum(column_widths + [3 * len(column_names) - 1]))
+
 
 for valeur in valeurs_aleatoires:
-    print(valeur)
+    for i in range(len(valeur)):
+        print(str(valeur[i]).ljust(column_widths[i]), end=" | ")
+    print()
+    print("-" * sum(column_widths + [3 * len(column_names) - 1]))
