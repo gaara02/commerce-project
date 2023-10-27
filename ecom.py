@@ -32,3 +32,4 @@ for row in results:
     for i in range(len(row)):
         print(str(row[i]).ljust(column_widths[i]), end=" | ")
     print()
+    print("-" * sum(column_widths + [3 * len(column_names) - 1]))
