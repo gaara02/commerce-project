@@ -13,7 +13,7 @@ CREATE TABLE Clients(
 
 
 CREATE TABLE Commandes(
-   idCommande VARCHAR(100),
+   idCommande INT AUTO_INCREMENT,
    dateCommande DATE,
    statut boolean,
    idClient VARCHAR(100) NOT NULL,
@@ -43,7 +43,7 @@ CREATE TABLE LignesCommandes(
    noligne VARCHAR(100),
    quantite VARCHAR(50),
    idProduit VARCHAR(100) NOT NULL,
-   idCommande VARCHAR(100) NOT NULL,
+   idCommande INT NOT NULL,
    PRIMARY KEY(noligne,idCommande),
    FOREIGN KEY(idProduit) REFERENCES Produits(idProduit),
    FOREIGN KEY(idCommande) REFERENCES Commandes(idCommande)
