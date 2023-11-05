@@ -23,7 +23,7 @@ for id_commande in liste_commandes:
 
     
     for i in range(no_lignes):
-        curseur.execute("SELECT `Uniq Id` FROM products")
+        curseur.execute("SELECT `idProduit` FROM produits")
         produits = curseur.fetchall()
         id_produit = random.choice(produits)[0]
         

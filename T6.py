@@ -38,7 +38,7 @@ for id_client in id_clients:
 conn_bd.commit()
 
     
-curseur.close()
+
 conn_bd.close()
 
 

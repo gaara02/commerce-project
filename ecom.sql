@@ -15,16 +15,16 @@ CREATE TABLE Clients(
 CREATE TABLE Commandes(
    idCommande INT AUTO_INCREMENT,
    dateCommande DATE,
-   statut boolean,
+   statut VARCHAR(50),
    idClient VARCHAR(100) NOT NULL,
    PRIMARY KEY(idCommande),
    FOREIGN KEY(idClient) REFERENCES Clients(idClient)
 );
 
 CREATE TABLE Categories(
-   idCategorie VARCHAR(100),
+   idCategorie INT AUTO_INCREMENT,
    nomCategorie VARCHAR(200),
-   idCategorieMere VARCHAR(100) NOT NULL,
+   idCategorieMere INT,
    PRIMARY KEY(idCategorie),
    FOREIGN KEY(idCategorieMere) REFERENCES Categories(idCategorie)
 );
@@ -34,13 +34,13 @@ CREATE TABLE Produits(
    nomproduit VARCHAR(200),
    prix INT,
    poids DECIMAL(15,2),
-   idCategorie VARCHAR(100) NOT NULL,
+   idCategorie INT NOT NULL,
    PRIMARY KEY(idProduit),
    FOREIGN KEY(idCategorie) REFERENCES Categories(idCategorie)
 );
 
 CREATE TABLE LignesCommandes(
-   noligne VARCHAR(100),
+   noligne INT,
    quantite VARCHAR(50),
    idProduit VARCHAR(100) NOT NULL,
    idCommande INT NOT NULL,
